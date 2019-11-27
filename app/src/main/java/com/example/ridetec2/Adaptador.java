@@ -56,8 +56,8 @@ public class Adaptador extends BaseAdapter {
         intro.setText(datos[i][1]);
         imagen.setImageResource(datosIMG[i]);
         siguiente.setTag(i);
-
         siguiente.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 Intent visorImagen = new Intent(contexto,VisorImagen.class);
@@ -67,11 +67,14 @@ public class Adaptador extends BaseAdapter {
                 visorImagen.putExtra("HR1",datos[(Integer) view.getTag()][1]);
                 visorImagen.putExtra("PRT",datos[(Integer) view.getTag()][2]);
                 visorImagen.putExtra("HR2", datos[(Integer) view.getTag()][3]);
-
                 contexto.startActivity(visorImagen);
+
+
             }
+
         });
 
         return vista;
+
     }
 }

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class conductorPrincipal extends AppCompatActivity {
 
@@ -164,7 +165,7 @@ public class conductorPrincipal extends AppCompatActivity {
     }
 
     private void validarHora1() {
-        String [] hora={"6:30", "7:30", "8:30", "9:30", "10:30", "11:30", "12:30", "13:30", "14:30", "15:30", "16:30", "17:30"};
+        String [] hora={"Hora","6:30", "7:30", "8:30", "9:30", "10:30", "11:30", "12:30", "13:30", "14:30", "15:30", "16:30", "17:30"};
         ArrayAdapter<String> adapter3= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, hora);
         hora1.setAdapter(adapter3);
     }
@@ -175,39 +176,41 @@ public class conductorPrincipal extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0:
+                        hora2.setText("Hora:");
+                    case 1:
                         hora2.setText("6:45");
                         break;
-                    case 1:
+                    case 2:
                         hora2.setText("7:45");
                         break;
-                    case 2:
+                    case 3:
                         hora2.setText("8:45");
                         break;
-                    case 3:
+                    case 4:
                         hora2.setText("9:45");
                         break;
-                    case 4:
+                    case 5:
                         hora2.setText("10:45");
                         break;
-                    case 5:
+                    case 6:
                         hora2.setText("11:45");
                         break;
-                    case 6:
+                    case 7:
                         hora2.setText("12:45");
                         break;
-                    case 7:
+                    case 8:
                         hora2.setText("13:45");
                         break;
-                    case 8:
+                    case 9:
                         hora2.setText("14:45");
                         break;
-                    case 9:
+                    case 10:
                         hora2.setText("15:45");
                         break;
-                    case 10:
+                    case 11:
                         hora2.setText("16:45");
                         break;
-                    case 11:
+                    case 12:
                         hora2.setText("17:45");
                         break;
                 }
@@ -221,6 +224,23 @@ public class conductorPrincipal extends AppCompatActivity {
     }
 
     private void cargarEventos() {
+        btn_confi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String ruta1=ruta.getSelectedItem().toString();
+                final String ruta=ruta2.getSelectedItem().toString();
+                final String Hora1=hora1.getSelectedItem().toString();
+                final String pas=pasajeros.getSelectedItem().toString();
+               // Toast.makeText(conductorPrincipal.this, ruta1+ruta+Hora1+pas, Toast.LENGTH_SHORT).show();
+                if(ruta1.equals("Seleccionar un rideTec:") || ruta.equals("Seleccionar un rideTec:") || Hora1.equals("Hora") || pas.equals("No. pasajeros")){
+                    Toast.makeText(conductorPrincipal.this, "No haz llenao un campo", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(conductorPrincipal.this, "Viaje Creado", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        });
+
     }
 
     private void numPas(){
