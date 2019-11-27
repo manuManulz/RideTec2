@@ -9,10 +9,11 @@ public class pasajero extends AppCompatActivity {
     String [][]datos={
             {"la fuente","6:30","mono","6:45","4"},
             {"biblioteca","10:30","OXXO juarez","10:45","1"},
-            {"entronque unidad","8:30","gasolineria juarez","8:45","4"}
+            {"entronque unidad","8:30","gasolineria soriana","8:45","4"}
 
     };
     int [] datosImg={R.drawable.fuente,R.drawable.biblioteca,R.drawable.crucero};
+    int [] datosImg2={R.drawable.mono,R.drawable.oxxo,R.drawable.gasolinera};
     int [] datosSIG={R.drawable.sig};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,7 @@ public class pasajero extends AppCompatActivity {
         setContentView(R.layout.activity_pasajero);
         lv=findViewById(R.id.lv_viajes);
 
-        lv.setAdapter(new Adaptador(this,datos,datosImg,datosSIG));
+        lv.setAdapter(new Adaptador(this,datos,datosImg,datosSIG,datosImg2));
 
     }
 }
